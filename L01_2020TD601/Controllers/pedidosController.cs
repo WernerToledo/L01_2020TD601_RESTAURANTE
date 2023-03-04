@@ -115,7 +115,7 @@ namespace L01_2020TD601.Controllers
         public IActionResult BuscarMotorista(int id)
         {
 
-            List<pedidos>? lpedidos = (from e in _pedidosContext.pedidos where e.motoristaId == id select e).FirstOrDefault();
+            List<pedidos>? lpedidos = (from e in _pedidosContext.pedidos where e.motoristaId == id select e).ToList();
 
             if (lpedidos != null)
             {
