@@ -99,11 +99,11 @@ namespace L01_2020TD601.Controllers
         public IActionResult BuscarPedido(int id)
         {
 
-            pedidos? pedidos = (from e in _pedidosContext.pedidos where e.clienteId == id select e).FirstOrDefault();
+            List<pedidos>? lpedidos = (from e in _pedidosContext.pedidos where e.clienteId == id select e).ToList();
 
-            if (pedidos != null) 
+            if (lpedidos != null) 
             {
-                return Ok(pedidos);
+                return Ok(lpedidos);
             }
             return NotFound();
 
@@ -115,11 +115,11 @@ namespace L01_2020TD601.Controllers
         public IActionResult BuscarMotorista(int id)
         {
 
-            pedidos? pedidos = (from e in _pedidosContext.pedidos where e.motoristaId == id select e).FirstOrDefault();
+            List<pedidos>? lpedidos = (from e in _pedidosContext.pedidos where e.motoristaId == id select e).FirstOrDefault();
 
-            if (pedidos != null)
+            if (lpedidos != null)
             {
-                return Ok(pedidos);
+                return Ok(lpedidos);
             }
             return NotFound();
 
